@@ -1,0 +1,32 @@
+{
+    "name": "minizinc",
+    "displayName": "minizinc",
+    "description": "Minizinc colorizer",
+    "version": "0.0.1",
+    "publisher": "Jack",
+    "engines": {
+        "vscode": "^1.15.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "minizinc",
+            "aliases": ["Minizinc", "minizinc"],
+            "extensions": [".mzn"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "minizinc",
+            "scopeName": "source.mzn",
+            "path": "./syntaxes/minizinc.tmLanguage.json"
+        }],
+        "snippets": [
+            {
+                "language": "minizinc",
+                "path": "./snippets.json"
+            }
+        ]
+    }
+}

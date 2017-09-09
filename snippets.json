@@ -1,0 +1,29 @@
+{
+    "If-then-else": {
+        "prefix": "ifthen",
+        "body": [
+            "if ${expr1} then ${expr2} else ${expr3} endif"
+        ]
+    },
+
+    "Function definition": {
+        "prefix": "function",
+        "body": [
+            "function ${type}: ${name}(${args}) = $expr;"
+        ]
+    },
+
+    "Array definition": {
+        "prefix": "array",
+        "body": [
+            "array[${idx}] of ${type}: ${name};"
+        ]
+    },
+
+    "Let-in expression": {
+        "prefix": "let",
+        "body": [
+            "let { ${type}: ${name} } in $0"
+        ]
+    }
+}

@@ -1,0 +1,100 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Minizinc",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.mzn",
+				"match": "\\b(if|then|else|endif|for|let|in)\\b"
+			},
+			{
+				"name": "keyword.others.mzn",
+				"match": "\\b(not|div|mod)\\b"
+			},
+			{
+				"name": "storage.type.mzn",
+				"match": "\\b(set|array|of|enum|par|var|int|float|string|bool)\\b"
+			},
+			{
+				"name": "constant.language.mzn",
+				"match": "\\b(true|false)\\b"
+			},
+			{
+				"name":	"keyword.declaration.mzn",
+				"match": "\\b(function|predicate|test|include)\\b"
+			},
+			{
+				"name": "keyword.statement.mzn",
+				"match": "\\b(constraint|solve|maximize|minimize|satisfy|output)\\b"
+			}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.double.mzn",
+			"begin": "\"",
+			"end": "\"",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.mzn"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.mzn"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#quoted-text"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [{
+				"name": "comment.line.percentage.mzn",
+				"begin": "%",
+				"end": "\\n"
+			}]
+		},
+		"quoted-text": {
+			"patterns": [
+				{
+					"name": "meta.embedded.line.mzn",
+					"contentName": "source.mzn",
+					"begin": "\\\\\\(",
+					"end": "\\)",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.section.embedded.begin.mzn"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.section.embedded.end.mzn"
+						}
+					},
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				},
+				{
+					"include": "#escaped-char"
+				}
+			]
+		}
+	},
+	"scopeName": "source.mzn"
+}
